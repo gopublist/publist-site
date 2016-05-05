@@ -19,7 +19,9 @@ class PostDetails extends Component {
   makeSticky() {
     var menu = $('.share-page');
     var menuPosition = menu.offset().top;
+    console.log(menu, menuPosition, $('#react-root'));
     $('#react-root').on('scroll', function() {
+      console.log($('#react-root')[0].scrollTop);
       if ($('#react-root')[0].scrollTop >= menuPosition) {
         $('.share-page').addClass('is-fixed');
         menu.style.position = 'fixed';
@@ -34,13 +36,7 @@ class PostDetails extends Component {
 
   render() {
 
-    var shareUrls = {
-      twitter: 'https://twitter.com/share?purl='+encodeURIComponent(document.location)+'&text='+encodeURIComponent('And we\'re off! Lees het verhaal rondom de start van @gopublist ->'),
-      facebook: 'http://www.facebook.com/sharer.php?u='+encodeURIComponent(document.location),
-      gplus: 'https://m.google.com/app/basic/share?cbp=12p5cc38y46k2&cid=5&soc-app=115&soc-platform=1&spath=/app/basic/stream&sparm=cbp%3Dkzz1m3u312ho%26cid%3D5%26soc-app%3D115%26soc-platform%3D1&href='+encodeURIComponent(document.location)
-    }
-
-    var postContent = (this.props._id == 1 ? <One shareUrls={shareUrls} /> : <Two shareUrls={shareUrls} />);
+    var postContent = (this.props._id == 1 ? <One /> : <Two />);
 
     return (
       <article style={styles.base}>

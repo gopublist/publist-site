@@ -6,15 +6,21 @@ import SocialMediaButtonStyle from '../../../style/social-media-button.jsx'
 class One extends Component {
   render() {
 
+    var shareUrls = {
+      twitter: 'https://twitter.com/share?purl='+encodeURIComponent(document.location)+'&text='+encodeURIComponent('And we\'re off! Lees het verhaal rondom de start van @gopublist ->'),
+      facebook: 'http://www.facebook.com/sharer.php?u='+encodeURIComponent(document.location),
+      gplus: 'https://m.google.com/app/basic/share?cbp=12p5cc38y46k2&cid=5&soc-app=115&soc-platform=1&spath=/app/basic/stream&sparm=cbp%3Dkzz1m3u312ho%26cid%3D5%26soc-app%3D115%26soc-platform%3D1&href='+encodeURIComponent(document.location)
+    }
+
     return (
       <div>
         <header style={styles.header}>
           <h1 style={styles.title}>And we&apos;re off!</h1>
         </header>
         <div style={styles.sharePageButtons} className="share-page social-media-buttons">
-          <a ref="twitter" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.twitter, styles.socialMediaButton)} target="_blank" href={this.props.shareUrls.twitter}>Twitter</a>
-          <a ref="facebook" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.facebook, styles.socialMediaButton)} target="_blank" href={this.props.shareUrls.facebook}>Facebook</a>
-          <a ref="gplus" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.gplus, styles.socialMediaButton)} target="_blank" href={this.props.shareUrls.gplus}>Google+</a>
+          <a ref="twitter" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.twitter, styles.socialMediaButton)} target="_blank" href={shareUrls.twitter}>Twitter</a>
+          <a ref="facebook" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.facebook, styles.socialMediaButton)} target="_blank" href={shareUrls.facebook}>Facebook</a>
+          <a ref="gplus" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.gplus, styles.socialMediaButton)} target="_blank" href={shareUrls.gplus}>Google+</a>
         </div>
         <div style={styles.meta}>
           Door <a href="mailto:steven@publist.nl">Steven Meijers</a>
