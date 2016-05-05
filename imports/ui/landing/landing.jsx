@@ -1,6 +1,8 @@
 import Radium from 'radium';
 import React, { Component } from 'react';
 
+import NewsletterSubscribe from './newsletter-subscribe.jsx';
+
 class Landing extends Component {
 
   constructor(props) {
@@ -10,6 +12,8 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing-wrapper" style={styles.base}>
+
+        <NewsletterSubscribe />
 
         <div style={Object.assign({}, styles.col, styles.colLeft)}>
           <div style={styles.maxWidth}>
