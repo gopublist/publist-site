@@ -2,6 +2,7 @@ import Radium from 'radium';
 import React, { Component } from 'react';
 
 import SocialMediaButtonStyle from '../../../style/social-media-button.jsx'
+import BlogStyles from '../blog-styles.jsx';
 
 class Two extends Component {
   render() {
@@ -14,19 +15,20 @@ class Two extends Component {
 
     return (
       <div>
-        <header style={styles.header}>
-          <h1 style={styles.title}>3 Redenen waarom wij kiezen voor transparantie</h1>
+        <header style={Object.assign({}, BlogStyles.header, {backgroundColor: '#FF6B6B', boxShadow: 'rgba(0, 0, 0, 0.4) 0 -2px 8px'})}>
+          <h1 style={Object.assign({}, BlogStyles.headerTitle, {color: '#fff'})}>3 Redenen waarom wij kiezen voor transparantie</h1>
+          <div style={Object.assign({}, BlogStyles.headerImg, {backgroundImage: 'url("/img/blog/header-2.png")'})}></div>
         </header>
         <div style={styles.sharePageButtons} className="share-page social-media-buttons">
           <a ref="twitter" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.twitter, styles.socialMediaButton)} target="_blank" href={shareUrls.twitter}>Twitter</a>
           <a ref="facebook" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.facebook, styles.socialMediaButton)} target="_blank" href={shareUrls.facebook}>Facebook</a>
           <a ref="gplus" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.gplus, styles.socialMediaButton)} target="_blank" href={shareUrls.gplus}>Google+</a>
         </div>
-        <div style={styles.meta}>
-          Door <a href="mailto:steven@publist.nl">Steven Meijers</a>
-          <div style={styles.postDate}>6 mei 2016</div>
+        <div style={BlogStyles.meta}>
+          Door <a href="mailto:steven@publist.nl" target="_top">Steven Meijers</a>
+          <div style={BlogStyles.postDate}>6 mei 2016</div>
         </div>
-        <div style={styles.excerpt}>
+        <div style={BlogStyles.excerpt}>
           <p>
             Afgelopen najaar kwamen Bart en ik bijeen om de kansen van Publist te bespreken. Het enige wat we tot zover hadden was een werktitel en een grof concept-idee welke ik ijverig had vormgegeven in een animatie. Nog voordat de blauwdrukken van het concept enige handvatten bood, waren we er het er beiden over eens dat een transparante bedrijfsvoering paste binnen de waarden en visie van ons beiden.
           </p>
@@ -80,14 +82,14 @@ class Two extends Component {
           <hr />
 
           <p>
-            <img style={styles.image} src="/img/pstats/201604-pstats.png" alt="Statistieken Publist, april 2016" title="Bij 1000 freelance schrijvers geven we een feestje!" />
+            <img style={BlogStyles.image} src="/img/pstats/201604-pstats.png" alt="Statistieken Publist, april 2016" title="Bij 1000 freelance schrijvers geven we een feestje!" />
           </p>
 
           <hr />
 
         </div>
-        <div style={styles.btnWrapper}>
-          <a href="/blog" className="btn btn-large" style={styles.btn}>Terug naar overzicht</a>
+        <div style={BlogStyles.btnWrapper}>
+          <a href="/blog" className="btn btn-large" style={BlogStyles.btn}>Terug naar overzicht</a>
         </div>
       </div>
     );
@@ -103,62 +105,6 @@ var styles = {
     paddingBottom: '25px',
     position: 'relative',
     maxWidth: '90%',
-  },
-  header: {
-    backgroundImage: 'url("/img/blog/header-2.png")',
-    boxShadow: 'rgba(0, 0, 0, 0.4) 0 -2px 8px',
-    backgroundColor: '#FF6B6B',
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
-    // borderTop: 'solid #fff 1px',
-    // borderRight: 'solid #fff 1px',
-    // borderLeft: 'solid #fff 1px',
-    position: 'relative',
-    margin: '0 auto',
-    '@media (min-width: 480px)': {
-      minHeight: '500px'
-    }
-  },
-  title: {
-    textAlign: 'center',
-    margin: 0,
-    padding: '60px',
-    maxWidth: '1050px',
-    color: '#fff',
-    margin: '0 auto',
-    lineHeight: '50px',
-    fontSize: '38px'
-  },
-  meta: {
-    maxWidth: '1050px',
-    padding: '30px 30px 15px 30px',
-    color: '#4d5056',
-    margin: '0 auto'
-  },
-  postDate: {
-    fontSize: '0.9em',
-    color: '#4d5056'
-  },
-  excerpt: {
-    maxWidth: '1050px',
-    padding: '0 30px',
-    margin: '0 auto'
-  },
-  btnWrapper: {
-    maxWidth: '1050px',
-    padding: '0 30px',
-    margin: '0 auto'
-  },
-  btn: {
-    backgroundColor: '#CC1B1B',
-    color: '#fff'
-  },
-
-  image: {
-    display: 'block',
-    margin: '0 auto',
-    maxWidth: '100%'
   },
 
   sharePageButtons: {

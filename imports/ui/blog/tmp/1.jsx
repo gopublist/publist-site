@@ -2,6 +2,7 @@ import Radium from 'radium';
 import React, { Component } from 'react';
 
 import SocialMediaButtonStyle from '../../../style/social-media-button.jsx'
+import BlogStyles from '../blog-styles.jsx';
 
 class One extends Component {
   render() {
@@ -14,19 +15,20 @@ class One extends Component {
 
     return (
       <div>
-        <header style={styles.header}>
-          <h1 style={styles.title}>And we&apos;re off!</h1>
+        <header style={Object.assign({}, BlogStyles.header)}>
+          <h1 style={Object.assign({}, BlogStyles.headerTitle, {color: '#fff'})}>And we&apos;re off!</h1>
+          <div style={Object.assign({}, BlogStyles.headerImg, {backgroundImage: 'url("/img/blog/header-1.png")'})}></div>
         </header>
         <div style={styles.sharePageButtons} className="share-page social-media-buttons">
           <a ref="twitter" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.twitter, styles.socialMediaButton)} target="_blank" href={shareUrls.twitter}>Twitter</a>
           <a ref="facebook" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.facebook, styles.socialMediaButton)} target="_blank" href={shareUrls.facebook}>Facebook</a>
           <a ref="gplus" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.gplus, styles.socialMediaButton)} target="_blank" href={shareUrls.gplus}>Google+</a>
         </div>
-        <div style={styles.meta}>
-          Door <a href="mailto:steven@publist.nl">Steven Meijers</a>
-          <div style={styles.postDate}>20 februari 2016</div>
+        <div style={BlogStyles.meta}>
+          Door <a href="mailto:steven@publist.nl" target="_top">Steven Meijers</a>
+          <div style={BlogStyles.postDate}>20 februari 2016</div>
         </div>
-        <div style={styles.excerpt}>
+        <div style={BlogStyles.excerpt}>
           <p>
             De afgelopen maanden hebben we hard gewerkt aan het uitzetten van het conceptueel plan rondom Publist. De feedback en positieve reacties op het initiële idee hebben ons ontwikkelproces een enorme boost gegeven. Input van derden is voor ons de manier om een zo transparant en gebruiksvriendelijk mogelijk platform te creëren.
           </p>
@@ -78,13 +80,13 @@ class One extends Component {
           </p>
 
           <p>
-            Tot slot: zou je <a href="/vragenlijst">deze korte vragenlijst</a> willen invullen? We zijn je hier zeer dankbaar voor!
+            Tot slot: zou je <a href="/questionnaire">deze korte vragenlijst</a> willen invullen? We zijn je hier zeer dankbaar voor!
             Wil je alleen op de hoogte blijven van de ontwikkelingen van Publist, dat kan hier natuurlijk ook.
           </p>
 
         </div>
-        <div style={styles.btnWrapper}>
-          <a href="/blog" className="btn btn-large" style={styles.btn}>Terug naar overzicht</a>
+        <div style={BlogStyles.btnWrapper}>
+          <a href="/blog" className="btn btn-large" style={BlogStyles.btn}>Terug naar overzicht</a>
         </div>
       </div>
     );
@@ -100,52 +102,6 @@ var styles = {
     paddingBottom: '25px',
     position: 'relative',
     maxWidth: '90%',
-  },
-  header: {
-    backgroundImage: 'url("/img/blog/header-1.png")',
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
-    backgroundColor: '#0F303F',
-    position: 'relative',
-    margin: '0 auto',
-    '@media (min-width: 480px)': {
-      minHeight: '500px'
-    }
-  },
-  title: {
-    textAlign: 'center',
-    margin: 0,
-    padding: '60px',
-    maxWidth: '1050px',
-    color: '#fff',
-    margin: '0 auto',
-    lineHeight: '50px',
-    fontSize: '38px'
-  },
-  meta: {
-    maxWidth: '1050px',
-    padding: '30px 30px 15px 30px',
-    color: '#4d5056',
-    margin: '0 auto'
-  },
-  postDate: {
-    fontSize: '0.9em',
-    color: '#4d5056'
-  },
-  excerpt: {
-    maxWidth: '1050px',
-    padding: '0 30px',
-    margin: '0 auto'
-  },
-  btnWrapper: {
-    maxWidth: '1050px',
-    padding: '0 30px',
-    margin: '0 auto'
-  },
-  btn: {
-    backgroundColor: '#CC1B1B',
-    color: '#fff'
   },
 
   sharePageButtons: {
