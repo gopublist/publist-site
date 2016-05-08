@@ -1,9 +1,1 @@
-{
-  "public": {
-
-  },
-  "piwik": {
-    "url": "http://analytics.tuxion.nl/piwik.php",
-    "site_id": 19
-  }
-}
+{ "piwik": { "url": "http://analytics.tuxion.nl/piwik.php", "site_id": 19 } }
