@@ -54,7 +54,6 @@ var styles = {
     margin: '20px auto',
     paddingBottom: '25px',
     position: 'relative',
-    maxWidth: '90%',
   },
   header: {
     backgroundImage: 'url("/img/blog/header-1.png")',

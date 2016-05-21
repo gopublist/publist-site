@@ -23,13 +23,12 @@ class Blog extends Component {
 
 var styles = {
   base: {
-    maxWidth: '1500px',
     margin: '30px auto',
-    maxWidth: '90%'
   },
   title: {
     display: 'none',
-    color: '#fff',
+    color: '#ccc',
+    marginLeft: '46px',
     '@media (min-width: 480px)': {
       display: 'block'
     }

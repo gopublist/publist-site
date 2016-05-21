@@ -17,11 +17,10 @@ html, body, #react-root{
   margin:0;
   padding:0;
   margin:0 auto;
-  overflow:hidden;
+  overflow:auto;
 }
 #react-root{
-  height:100%;
-  overflow:auto;
+  min-height:100%;
 }
 
 body{

@@ -15,7 +15,7 @@ class Two extends Component {
 
     return (
       <div>
-        <header style={Object.assign({}, BlogStyles.header, {backgroundColor: '#FF6B6B', boxShadow: 'rgba(0, 0, 0, 0.4) 0 -2px 8px'})}>
+        <header style={Object.assign({}, BlogStyles.header, {backgroundColor: '#FF6B6B'})}>
           <h1 style={Object.assign({}, BlogStyles.headerTitle, {color: '#fff'})}>3 Redenen waarom wij kiezen voor transparantie</h1>
           <div style={Object.assign({}, BlogStyles.headerImg, {backgroundImage: 'url("/img/blog/header-2.png")'})}></div>
         </header>

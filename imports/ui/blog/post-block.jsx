@@ -14,9 +14,9 @@ class PostBlock extends Component {
       <div>
 
         <article style={styles.base}>
-          <header style={BlogStyles.header}>
-            <h1 style={BlogStyles.headerTitle}><a href="/blog/1" style={{color: '#fff'}}>3 Reden waarom wij kiezen voor transparantie</a></h1>
-            <div style={Object.assign({}, BlogStyles.headerImg, {backgroundImage: 'url("/img/blog/header-1.png")'})}></div>
+          <header style={Object.assign({}, BlogStyles.header, {backgroundColor: '#FF6B6B'})}>
+            <h1 style={BlogStyles.headerTitle}><a href="/blog/2" style={{color: '#fff'}}>3 Reden waarom wij kiezen voor transparantie</a></h1>
+            <div style={Object.assign({}, BlogStyles.headerImg, {backgroundImage: 'url("/img/blog/header-2.png")'})}></div>
           </header>
           <div style={BlogStyles.meta}>
             Door <a href="mailto:steven@publist.nl" target="_top">Steven Meijers</a>
@@ -33,9 +33,9 @@ class PostBlock extends Component {
         </article>
 
         <article style={styles.base}>
-          <header style={Object.assign({}, BlogStyles.header, {backgroundColor: '#FF6B6B', boxShadow: 'rgba(0, 0, 0, 0.4) 0 -2px 8px'})}>
+          <header style={BlogStyles.header}>
             <h1 style={BlogStyles.headerTitle}><a href="/blog/1" style={{color: '#fff'}}>And we&apos;re off!</a></h1>
-            <div style={Object.assign({}, BlogStyles.headerImg, {backgroundImage: 'url("/img/blog/header-2.png")'})}></div>
+            <div style={Object.assign({}, BlogStyles.headerImg, {backgroundImage: 'url("/img/blog/header-1.png")'})}></div>
           </header>
           <div style={BlogStyles.meta}>
             Door <a href="mailto:steven@publist.nl" target="_top">Steven Meijers</a>

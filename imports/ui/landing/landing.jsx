@@ -45,6 +45,8 @@ class Landing extends Component {
 
 var styles = {
   base: {
+    backgroundColor: '#ee7370',
+    backgroundImage: 'repeating-linear-gradient(55deg, #ee7370, #ee7370 50%, #e05f5f 50%, #e05f5f 100%)',
     maxWidth: '100%',
     height: 'calc(100% - 80px)',
     position: 'relative',
@@ -53,6 +55,9 @@ var styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    '@media (max-width: 800px)': {
+      backgroundImage: 'repeating-linear-gradient(90deg, #ee7370, #ee7370 50%, #e05f5f 50%, #e05f5f 100%)'
+    },
     '@media (min-width: 480px)': {
       padding: '4% 4% 0 4%'
     },
