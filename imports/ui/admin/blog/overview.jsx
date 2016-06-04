@@ -4,11 +4,10 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
 // Models
-import { BlogPosts } from '../../../../api/blogPosts.js';
+import { BlogPosts } from '../../../api/blogPosts.js';
 
 // Templates
-import BlogPost from './post/post.jsx';
-import EditBlogPost from './post/editPost.jsx'
+import Post from './post.jsx';
 
 // Overview component
 export default class Overview extends Component {
@@ -29,10 +28,7 @@ export default class Overview extends Component {
   }
 
   renderBlogPosts() {
-    self = this;
-    return this.props.blogPosts.map((post) => (
-      <BlogPost key={post._id} post={post} />
-    ));
+    return this.props.blogPosts.map(post => <Post key={post._id} post={post} />);
   }
 
   render() {
