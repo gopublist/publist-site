@@ -61,17 +61,17 @@ export default class EditPost extends Component {
       <form ref="form" style={styles.base} onSubmit={this.handleSubmit.bind(this)}>
 
         <label style={styles.label}>
-          Titel
+          * Titel
           <input style={styles.input} autoFocus="true" type="text" name="title" ref="title" value={this.state.blogPost.title} onChange={this.handleChange.bind(this)} />
         </label>
 
         <label style={styles.label}>
-          Teaser (= tekst die in het overzicht wordt weergegeven)
+          * Teaser (= tekst die in het overzicht wordt weergegeven)
           <textarea style={Object.assign({}, styles.input, styles.textarea)} name="teaser" ref="teaserTextInput" defaultValue={this.state.blogPost.teaser} onChange={this.handleChange.bind(this)} ></textarea>
         </label>
 
         <label style={styles.label}>
-          Volledige tekst
+          * Volledige tekst
           <textarea style={Object.assign({}, styles.input, styles.textarea)} name="text" ref="text" defaultValue={this.state.blogPost.text} onChange={this.handleChange.bind(this)}></textarea>
         </label>
 
@@ -80,22 +80,27 @@ export default class EditPost extends Component {
         </p>
 
         <label style={styles.label}>
-          URL van de header-afbeelding
+          * URL van de header-afbeelding
           <input style={styles.input} type="text" name="headerImage" ref="headerImage" value={this.state.blogPost.headerImage} onChange={this.handleChange.bind(this)} />
         </label>
 
         <label style={styles.label}>
-          Naam auteur
+          Achtergrondkleur van header
+          <input style={styles.input} type="text" name="color" ref="color" value={this.state.blogPost.color} onChange={this.handleChange.bind(this)} />
+        </label>
+
+        <label style={styles.label}>
+          * Naam auteur
           <input style={styles.input} type="text" name="authorName" ref="authorName" value={this.state.blogPost.authorName ? this.state.blogPost.authorName : 'Steven Meijers'} onChange={this.handleChange.bind(this)} />
         </label>
 
         <label style={styles.label}>
-          Link auteur
+          * Link auteur
           <input style={styles.input} type="text" name="authorLink" ref="authorLink" value={this.state.blogPost.authorLink ? this.state.blogPost.authorLink : 'mailto:steven@publist.nl'} onChange={this.handleChange.bind(this)} />
         </label>
 
         <label style={styles.label}>
-          Gepubliceerd op
+          * Gepubliceerd op
           <input style={styles.input} type="date" name="publishedFrom" ref="publishedFrom" value={this.state.blogPost.publishedFrom} onChange={this.handleChange.bind(this)} />
         </label>
 
