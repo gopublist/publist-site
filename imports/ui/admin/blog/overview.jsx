@@ -14,27 +14,22 @@ export default class Overview extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { activeBlogPost: {} }
   }
 
-  /**
-   *  Delete an post
-   * 
-   * @param {int} _id
-   * @return {(bool) true|false}
-   */
-  deleteBlogPost(_id) {
-    return BlogPosts.remove(_id);
-  }
+  // newBlogPost :: ? -> ?
+  newBlogPost() { FlowRouter.go('Admin.Blog.details', {blogPostId: 'new'}) }
 
-  renderBlogPosts() {
-    return this.props.blogPosts.map(post => <Post key={post._id} post={post} />);
-  }
+  // deleteBlogPost :: Int _id -> Bool
+  deleteBlogPost(_id) { return BlogPosts.remove(_id) }
+
+  // renderBlogPosts :: ? -> [Post]
+  renderBlogPosts() { return this.props.blogPosts.map(post => <Post key={post._id} post={post} />) }
 
   render() {
 
     return (
       <div styles={styles.base}>
+        <button onClick={this.newBlogPost.bind(this)}>Nieuwe blog post</button>
         {this.renderBlogPosts()}
       </div>
     );

@@ -25,11 +25,16 @@ export default class EditPost extends Component {
  //    });
  //  }
 
+  // handleChange :: Event -> ?
   handleChange(e) {
-    this.state.blogPost[e.target.name] = e.target.value.trim();
+    this.state.blogPost[e.target.name] = e.target.value;
     this.setState(this.state);
   }
 
+  // getLatestBlogPost :: ? -> BlogPost undefined
+  getLatestBlogPost() { return BlogPosts.find({}, {sort: { _id: -1 }}, {limit: 1}).fetch()[0] }
+
+  // handleSubmit :: Event -> ?
   handleSubmit(e) {
 
     e.preventDefault();
@@ -41,15 +46,15 @@ export default class EditPost extends Component {
 
     // Insert data otherwise
     else {
-      // autoIncrementedId = BlogPosts.find({}, {sort: { _id: -1 }}, {limit: 1}).fetch()[0]._id+1;// Find latest ID
-      autoIncrementedId = 1;
-      Meteor.call('blogPosts.insert', Object.assign({}, this.state.blogPost, {_id: autoIncrementedId}));
+      /* Find latest ID */ autoIncrementedId = this.getLatestBlogPost() ? parseInt(this.getLatestBlogPost()._id) + 1 : 1;
+      /* Insert */ Meteor.call('blogPosts.insert', Object.assign({}, this.state.blogPost, {_id: autoIncrementedId}));
     }
 
     FlowRouter.go('Admin');
 
   }
 
+  // render
   render() {
 
     return (
@@ -57,7 +62,7 @@ export default class EditPost extends Component {
 
         <label style={styles.label}>
           Titel
-          <input style={styles.input} type="text" name="title" ref="title" value={this.state.blogPost.title} onChange={this.handleChange.bind(this)} />
+          <input style={styles.input} autoFocus="true" type="text" name="title" ref="title" value={this.state.blogPost.title} onChange={this.handleChange.bind(this)} />
         </label>
 
         <label style={styles.label}>
@@ -81,12 +86,12 @@ export default class EditPost extends Component {
 
         <label style={styles.label}>
           Naam auteur
-          <input style={styles.input} type="text" name="authorName" ref="authorName" value={this.state.blogPost.authorName} onChange={this.handleChange.bind(this)} />
+          <input style={styles.input} type="text" name="authorName" ref="authorName" value={this.state.blogPost.authorName ? this.state.blogPost.authorName : 'Steven Meijers'} onChange={this.handleChange.bind(this)} />
         </label>
 
         <label style={styles.label}>
           Link auteur
-          <input style={styles.input} type="text" name="authorLink" ref="authorLink" value={this.state.blogPost.authorLink} onChange={this.handleChange.bind(this)} />
+          <input style={styles.input} type="text" name="authorLink" ref="authorLink" value={this.state.blogPost.authorLink ? this.state.blogPost.authorLink : 'mailto:steven@publist.nl'} onChange={this.handleChange.bind(this)} />
         </label>
 
         <label style={styles.label}>
@@ -130,11 +135,12 @@ var styles = {
 }
 
 EditPost.propTypes = {
-  blogPost: PropTypes.array.isRequired
+  blogPost: PropTypes.object.isRequired
 };
 
 export default createContainer((props) => {
   return {
-    blogPost: props.blogPost ? props.blogPost : BlogPosts.find({_id: props.blogPostId}).fetch()[0]
+    blogPost: props.blogPost ? props.blogPost
+      : props.blogPostId == 'new' ? {} : BlogPosts.find({_id: props.blogPostId}).fetch()[0]
   };
 }, EditPost);
