@@ -13,10 +13,10 @@ class NewsletterSubscribe extends Component {
     initialValue = 'Houd me op de hoogte';
     $('#mce-EMAIL').val(initialValue).on({
       'focus': function(e) {
-        return (styles.inputSubmit.display = 'inline-block', self.forceUpdate(), $(this).val('Mijn e-mailadres is..').select()).on({
+        return (s.inputSubmit.display = 'inline-block', self.forceUpdate(), $(this).val('Mijn e-mailadres is..').select()).on({
           'blur': function(e) {
             if ($(this).val() === 'Mijn e-mailadres is..') {
-              styles.inputSubmit.display = 'none';
+              s.inputSubmit.display = 'none';
               self.forceUpdate();
               return $(this).val(initialValue);
             }
@@ -40,7 +40,7 @@ class NewsletterSubscribe extends Component {
       contentType: "application/json; charset=utf-8",
       error: function(err) {
 
-        styles.notificationContainer.display = 'flex';
+        s.notificationContainer.display = 'flex';
         setTimeout(function(){
           $('.notificationContainer').hide();
         }, 10000);
@@ -50,7 +50,7 @@ class NewsletterSubscribe extends Component {
       },
       success: function(data) {
 
-        styles.notificationContainer.display = 'flex';
+        s.notificationContainer.display = 'flex';
         setTimeout(function(){
           $('.notificationContainer').hide();
         }, 10000);
@@ -73,22 +73,23 @@ class NewsletterSubscribe extends Component {
  
   render() {
     return (
-      <form onSubmit={this.submitForm.bind(this)} style={styles.base} action="https://publist.us1.list-manage.com/subscribe/post-json?u=ce0bb47feb2cc31030ee93bcd&amp;id=e0a49457d2&c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
-        <div style={Object.assign({}, styles.notificationContainer)} className="notificationContainer"></div>
-        <div style={styles.label}>Wij bouwen een platform voor freelance schrijvers en bedrijven met een verhaal. Een plek voor ontmoeting.</div>
-        <div style={styles.hiddenMailchimp} aria-hidden="true"><input type="text" name="b_ce0bb47feb2cc31030ee93bcd_e0a49457d2" tabindex="-1" value="" /></div>
-        <input ref="email" style={Object.assign({}, styles.input, styles.inputEmail)} className="btn btn-light" type="email" name="EMAIL" id="mce-EMAIL" placeholder="Houd me op de hoogte, mijn mail is..." />
-        <input onClick={this.submitForm.bind(this)} style={Object.assign({}, styles.input, styles.inputSubmit)} name="subscribe" id="mc-embedded-subscribe" type="submit" value=">" />
+      <form onSubmit={this.submitForm.bind(this)} style={s.base} action="https://publist.us1.list-manage.com/subscribe/post-json?u=ce0bb47feb2cc31030ee93bcd&amp;id=e0a49457d2&c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
+
+        <div style={s.hiddenMailchimp} aria-hidden="true"><input type="text" name="b_ce0bb47feb2cc31030ee93bcd_e0a49457d2" tabindex="-1" value="" /></div>
+
+        <div style={Object.assign({}, s.notificationContainer)} className="notificationContainer"></div>
+
+        <input ref="email" style={Object.assign({}, s.input, s.inputEmail)} className="btn btn-light" type="email" name="EMAIL" id="mce-EMAIL" placeholder="Houd me op de hoogte, mijn mail is..." />
+
+        <input onClick={this.submitForm.bind(this)} style={Object.assign({}, s.input, s.inputSubmit)} name="subscribe" id="mc-embedded-subscribe" type="submit" value=">" />
+
       </form>
     );
   }
 }
 
-var styles = {
+var s = {
   base: {
-    position: 'absolute',
-    right: '62px',
-    top: '30px',
     display: 'flex',
     zIndex: 20,
     justifyContent: 'space-between',
