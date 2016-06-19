@@ -2,6 +2,7 @@ import Radium from 'radium';
 import React, { Component } from 'react';
 
 import NewsletterSubscribe from '../modules/newsletter/mailchimp-subscribe.jsx';
+import TargetAudience from './sections/target-audience.jsx';
 
 class Landing extends Component {
 
@@ -9,43 +10,80 @@ class Landing extends Component {
     super(props);
   }
  
+  //+ createTargetAudienceSection :: Object -> Element
+  createTargetAudienceSection(data) {
+    return (
+      <section>
+        <img src="" />
+      </section>
+    )
+  }
+
   render() {
     return (
       <div className="landing-wrapper" style={s.base}>
-        <div style={s.maxWidth}>
 
-          <h1 style={s.introTitle}>Thought leadership binnen handbereik</h1>
+        <section style={s.landingEntrance}>
+          <div style={s.maxWidth}>
+            <h1 style={s.introTitle}>Thought leadership binnen handbereik</h1>
+            <p style={s.introText}>
+              Vind als opdrachtgever aansprekende journalisten, bloggers en columnisten. Creëer als freelancer een online portfolio. Weet samen de wereld te bereiken.
+            </p>
+            <NewsletterSubscribe showLabel="true" />
+          </div>
+        </section>
 
-          <p style={s.introText}>
-            Vind als opdrachtgever aansprekende journalisten, bloggers en columnisten. Creëer als freelancer een online portfolio. Weet samen de wereld te bereiken.
-          </p>
+        <TargetAudience
+          image="/img/persona/sigmund.svg"
+          title="Content platform gebouwd voor schrijvers"
+          description="Jouw gepubliceerde werk is waardevol. Met een portfolio op Publist beheer je eenvoudig al jouw online gepubliceerde artikelen en ben je vindbaar voor opdrachtgevers."
+          benefits={[
+            {image: '/img/icon/benefit/Freelancer/Online vindbaarheid.svg', title: 'Online portfolio', description: 'Al je gepubliceerde werk overzichtelijk online in je portfolio.'},
+            {image: '/img/icon/benefit/Freelancer/Vind opdrachten.svg', title: 'Vind opdrachtgevers', description: 'Vinden van- en gevonden worden door opdrachtgevers voor het schrijven van blogs, e-books en whitepapers.'},
+            {image: '/img/icon/benefit/Freelancer/Thought leadership.svg', title: 'Thought leadership', description: 'Deel jouw kennis en bereik thought leadership binnen jouw expertise.'},
+            {image: '/img/icon/benefit/Freelancer/Online vindbaarheid.svg', title: 'Online vindbaar', description: 'Vergroot je online vindbaarheid met je online portfolio.'}
+          ]} />
 
-          <NewsletterSubscribe showLabel="true" />
+        <TargetAudience
+          image="/img/persona/roy.svg"
+          title="Vind schrijvers die aansluiten bij jouw visie en tone of voice"
+          description="Je onderneming is het waard om te communiceren met relevante en kwalitatief hoogwaardige content."
+          benefits={[
+            {image: '/img/icon/benefit/Opdrachtgever/Conversie.svg', title: 'Conversie', description: 'Weet met relevante content meer conversie via jouw website te behalen.'},
+            {image: '/img/icon/benefit/Opdrachtgever/Customor journey.svg', title: 'Buyer journey', description: 'Bereik je doelgroep binnen elke fase van het beslissingsproces.'},
+            {image: '/img/icon/benefit/Opdrachtgever/Thought leaderhip opdrachtgever.svg', title: 'Thought leadership', description: 'Laat professionele schrijvers je expertise vertalen naar relevante content.'},
+            {image: '/img/icon/benefit/Opdrachtgever/Timesaver.svg', title: 'Huge timesaver', description: 'Bereik je doelgroep binnen elke fase van het beslissingsproces.'}
+          ]} />
 
-        </div>
       </div>
     );
   }
+
 }
 
 var s = {
   base: {
+    maxWidth: '100%',
+    position: 'relative',
+    lineHeight: '1.25em',
+    minHeight: '100%',
+  },
+  landingEntrance: {
+    paddingTop: '80px',
+    paddingRight: '15px',
+    paddingBottom: '15px',
+    paddingLeft: '15px',
     backgroundColor: '#000',
     backgroundImage: 'url(/img/landing/photo-laptop.png)',
     backgroundPosition: 'center center',
     backgroundSize: 'cover',
     backgroundRepeat: 'noRepeat',
-    maxWidth: '100%',
-    height: '100%',
-    paddingTop: '80px',
-    position: 'relative',
+    height: '100vh',
     color: '#fff',
-    padding: '15px',
     display: 'flex',
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    lineHeight: '1.25em'
   },
   col: {
     '@media (min-width: 480px)': {
