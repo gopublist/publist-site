@@ -1,7 +1,7 @@
 import Radium from 'radium';
 import React, { Component } from 'react';
 
-import NewsletterSubscribe from './newsletter-subscribe.jsx';
+import NewsletterSubscribe from '../modules/newsletter/mailchimp-subscribe.jsx';
 
 class Landing extends Component {
 
@@ -11,121 +11,63 @@ class Landing extends Component {
  
   render() {
     return (
-      <div className="landing-wrapper" style={styles.base}>
+      <div className="landing-wrapper" style={s.base}>
+        <div style={s.maxWidth}>
 
-        <NewsletterSubscribe />
+          <h1 style={s.introTitle}>Thought leadership binnen handbereik</h1>
 
-        <div style={Object.assign({}, styles.col, styles.colLeft)}>
-          <div style={styles.maxWidth}>
+          <p style={s.introText}>
+            Vind als opdrachtgever aansprekende journalisten, bloggers en columnisten. Creëer als freelancer een online portfolio. Weet samen de wereld te bereiken.
+          </p>
 
-            <h1 style={styles.heading}>Publiceer en intrigeer de wereld</h1>
-
-            <p>
-              Publist is de portfolio-site waar de zakelijke markt in contact kan komen met freelance journalisten, bloggers en columnisten.
-            </p>
-
-            <p>
-              We werken aan een zo gebruiksvriendelijk mogelijk platform. Zou je ons hierbij willen helpen door het invullen van een korte vragenlijst?
-            </p>
-
-            <p>
-              <a href="/questionnaire" className="btn btn-large" style={styles.btnGo}>Let&#39;s go!</a>
-            </p>
-
-          </div>
-        </div>
-        <div style={Object.assign({}, styles.col, styles.colRight)}>
+          <NewsletterSubscribe showLabel="true" />
 
         </div>
-
       </div>
     );
   }
 }
 
-var styles = {
+var s = {
   base: {
-    backgroundColor: '#ee7370',
-    backgroundImage: 'repeating-linear-gradient(55deg, #ee7370, #ee7370 50%, #e05f5f 50%, #e05f5f 100%)',
+    backgroundColor: '#000',
+    backgroundImage: 'url(/img/landing/photo-laptop.png)',
+    backgroundPosition: 'center center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'noRepeat',
     maxWidth: '100%',
-    height: 'calc(100% - 80px)',
+    height: '100%',
+    paddingTop: '80px',
     position: 'relative',
     color: '#fff',
     padding: '15px',
     display: 'flex',
+    textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    '@media (max-width: 800px)': {
-      backgroundImage: 'repeating-linear-gradient(90deg, #ee7370, #ee7370 50%, #e05f5f 50%, #e05f5f 100%)'
-    },
-    '@media (min-width: 480px)': {
-      padding: '4% 4% 0 4%'
-    },
+    lineHeight: '1.25em'
   },
   col: {
     '@media (min-width: 480px)': {
       flex: 1,
     }
   },
-  colLeft: {
-    fontSize: '18px',
-    lineHeight: '26px',
-    '@media (min-width: 480px)': {
-      paddingLeft: '4%',
-    }
-  },
-  colRight: {
-    height: '100%',
-    backgroundImage:'url(img/illustration/ipad.svg)',
-    backgroundPosition: 'center bottom',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
-    width: '50%',
-    display: 'none',
-    '@media (min-width: 480px)': {
-      paddingRight: '4%',
-      display: 'block',
-    },
-    '@media (min-width: 800px)': {
-      position: 'relative',
-      left: '180px',
-    }
-  },
-  heading: {
+  introTitle: {
+    fontWeight: 'bold',
     fontSize: '26px',
-    fontWeight: 'normal'
+    fontWeight: 'normal',
+    marginBottom: '30px'
   },
+  introText: {
+    marginBottom: '50px',
+    maxWidth: '522px',
+  },
+
   maxWidth: {
-    maxWidth: '420px',
+    maxWidth: '680px',
     margin: '0 auto',
     position: 'relative',
   },
-  moreInformationWrapper: {
-    textAlign: 'center',
-    position: 'absolute',
-    margin: '0 auto',
-    bottom: '150px',
-    left: 0,
-    width: '100%',
-    textTransform: 'lowercase',
-  },
-  moreInformationBtn: {
-    cursor: 'pointer',
-    display: 'block',
-    background: 'no-repeat center center',
-    backgroundImage: 'url(http://bartroorda.nl/upimg/201504/s-20151211-165201.png)',
-    width: '30px',
-    height: '30px',
-    backgroundSize: 'cover',
-    margin: '10px auto',
-    transition: 'margin 1s',
-    ':hover': {
-      'margin-top': '20px'
-    }
-  },
-  intro: {
-    display: 'none'
-  }
 }
 
 export default Radium(Landing);
