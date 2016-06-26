@@ -6,6 +6,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { BlogPosts } from '../../api/blogPosts.js';
 
 // Import templates
+import PageHeader from '../layout/page-header.jsx';
 import PostBlock from './post-block.jsx';
 
 class Blog extends Component {
@@ -20,6 +21,7 @@ class Blog extends Component {
   render() {
     return (
       <div className="blog-wrapper" style={styles.base}>
+        <PageHeader />
         <h1 style={styles.title}>Publist blog</h1>
         {this.renderBlogPosts()}
       </div>
@@ -30,11 +32,12 @@ class Blog extends Component {
 
 var styles = {
   base: {
-    margin: '30px auto',
+    margin: '0 auto 30px auto',
   },
   title: {
     display: 'none',
     color: '#ccc',
+    marginTop: '30px',
     marginLeft: '46px',
     '@media (min-width: 480px)': {
       display: 'block'

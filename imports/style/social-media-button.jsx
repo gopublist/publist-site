@@ -28,19 +28,37 @@ export default {
     }
   },
   twitter: {
-    backgroundImage: 'url(/img/icon/twitter-default.svg)',
+    backgroundImage: 'url(/img/icon/gray/twitter-default.svg)',
     ':hover': {
       backgroundImage: 'url(/img/icon/twitter-hover.svg)'
     }
   },
   facebook: {
-    backgroundImage: 'url(/img/icon/facebook-default.svg)',
+    backgroundImage: 'url(/img/icon/gray/facebook-default.svg)',
     ':hover': {
       backgroundImage: 'url(/img/icon/facebook-hover.svg)'
     },
   },
   gplus: {
-    backgroundImage: 'url(/img/icon/gplus-default.svg)',
+    backgroundImage: 'url(/img/icon/gray/gplus-default.svg)',
+    ':hover': {
+      backgroundImage: 'url(/img/icon/gplus-hover.svg)'
+    },
+  },
+  twitterWhite: {
+    backgroundImage: 'url(/img/icon/white/twitter-default.svg)',
+    ':hover': {
+      backgroundImage: 'url(/img/icon/twitter-hover.svg)'
+    }
+  },
+  facebookWhite: {
+    backgroundImage: 'url(/img/icon/white/facebook-default.svg)',
+    ':hover': {
+      backgroundImage: 'url(/img/icon/facebook-hover.svg)'
+    },
+  },
+  gplusWhite: {
+    backgroundImage: 'url(/img/icon/white/gplus-default.svg)',
     ':hover': {
       backgroundImage: 'url(/img/icon/gplus-hover.svg)'
     },

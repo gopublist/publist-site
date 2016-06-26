@@ -1,7 +1,11 @@
 import Radium from 'radium';
 import React, { Component } from 'react';
 
-import NewsletterSubscribe from './newsletter-subscribe.jsx';
+import PageHeader from './page-header.jsx';
+import NewsletterSubscribe from '../modules/newsletter/mailchimp-subscribe.jsx';
+import NewsletterSubscribeBanner from '../modules/banner/banner-wide.jsx';
+import TargetAudience from './sections/target-audience.jsx';
+import PageFooter from '../layout/page-footer.jsx';
 
 class Landing extends Component {
 
@@ -9,123 +13,147 @@ class Landing extends Component {
     super(props);
   }
  
+  //+ createTargetAudienceSection :: Object -> Element
+  createTargetAudienceSection(data) {
+    return (
+      <section>
+        <img src="" />
+      </section>
+    )
+  }
+
   render() {
     return (
-      <div className="landing-wrapper" style={styles.base}>
+      <div className="landing-wrapper" style={s.base}>
 
-        <NewsletterSubscribe />
+        <PageHeader />
 
-        <div style={Object.assign({}, styles.col, styles.colLeft)}>
-          <div style={styles.maxWidth}>
-
-            <h1 style={styles.heading}>Publiceer en intrigeer de wereld</h1>
-
-            <p>
-              Publist is de portfolio-site waar de zakelijke markt in contact kan komen met freelance journalisten, bloggers en columnisten.
+        <section style={s.landingEntrance}>
+          <div style={s.maxWidth}>
+            <h1 style={s.introTitle}>Thought leadership binnen handbereik</h1>
+            <p style={s.introText}>
+              Vind als opdrachtgever aansprekende journalisten, bloggers en columnisten. Creëer als freelancer een online portfolio. Weet samen de wereld te bereiken.
             </p>
-
-            <p>
-              We werken aan een zo gebruiksvriendelijk mogelijk platform. Zou je ons hierbij willen helpen door het invullen van een korte vragenlijst?
-            </p>
-
-            <p>
-              <a href="/questionnaire" className="btn btn-large" style={styles.btnGo}>Let&#39;s go!</a>
-            </p>
-
+            <NewsletterSubscribe showLabel="true" />
           </div>
-        </div>
-        <div style={Object.assign({}, styles.col, styles.colRight)}>
+        </section>
 
-        </div>
+        <TargetAudience
+          image="/img/persona/sigmund.svg"
+          title="Content platform gebouwd voor schrijvers"
+          description="Jouw gepubliceerde werk is waardevol. Met een portfolio op Publist beheer je eenvoudig al jouw online gepubliceerde artikelen en ben je vindbaar voor opdrachtgevers."
+          benefits={[
+            {image: '/img/icon/benefit/Freelancer/Online vindbaarheid.svg', title: 'Online portfolio', description: 'Al je gepubliceerde werk overzichtelijk online in je portfolio.'},
+            {image: '/img/icon/benefit/Freelancer/Vind opdrachten.svg', title: 'Vind opdrachtgevers', description: 'Vinden van- en gevonden worden door opdrachtgevers voor het schrijven van blogs, e-books en whitepapers.'},
+            {image: '/img/icon/benefit/Freelancer/Thought leadership.svg', title: 'Thought leadership', description: 'Deel jouw kennis en bereik thought leadership binnen jouw expertise.'},
+            {image: '/img/icon/benefit/Freelancer/Online vindbaarheid.svg', title: 'Online vindbaar', description: 'Vergroot je online vindbaarheid met je online portfolio.'}
+          ]} />
+
+        <NewsletterSubscribeBanner>
+          <NewsletterSubscribe extraStyles={s.newsletterSubscribeExtraStyles} />
+        </NewsletterSubscribeBanner>
+
+        <TargetAudience
+          image="/img/persona/roy.svg"
+          title="Vind schrijvers die aansluiten bij jouw visie en tone of voice"
+          description="Je onderneming is het waard om te communiceren met relevante en kwalitatief hoogwaardige content."
+          benefits={[
+            {image: '/img/icon/benefit/Opdrachtgever/Conversie.svg', title: 'Conversie', description: 'Weet met relevante content meer conversie via jouw website te behalen.'},
+            {image: '/img/icon/benefit/Opdrachtgever/Customor journey.svg', title: 'Buyer journey', description: 'Bereik je doelgroep binnen elke fase van het beslissingsproces.'},
+            {image: '/img/icon/benefit/Opdrachtgever/Thought leaderhip opdrachtgever.svg', title: 'Thought leadership', description: 'Laat professionele schrijvers je expertise vertalen naar relevante content.'},
+            {image: '/img/icon/benefit/Opdrachtgever/Timesaver.svg', title: 'Huge timesaver', description: 'Bereik je doelgroep binnen elke fase van het beslissingsproces.'}
+          ]} />
+
+        <NewsletterSubscribeBanner>
+          <NewsletterSubscribe extraStyles={s.newsletterSubscribeExtraStyles} />
+        </NewsletterSubscribeBanner>
+
+        <PageFooter />
 
       </div>
     );
   }
+
 }
 
-var styles = {
+var s = {
   base: {
-    backgroundColor: '#ee7370',
-    backgroundImage: 'repeating-linear-gradient(55deg, #ee7370, #ee7370 50%, #e05f5f 50%, #e05f5f 100%)',
     maxWidth: '100%',
-    height: 'calc(100% - 80px)',
     position: 'relative',
+    lineHeight: '1.25em',
+    minHeight: '100%',
+    '@media (min-width: 1200px)': {
+      fontSize: '1.2em'
+    }
+  },
+  landingEntrance: {
+    paddingTop: '80px',
+    paddingRight: '15px',
+    paddingBottom: '15px',
+    paddingLeft: '15px',
+    backgroundColor: '#000',
+    backgroundImage: 'url(/img/landing/photo-laptop.png)',
+    backgroundPosition: 'center center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'noRepeat',
+    height: '100vh',
     color: '#fff',
-    padding: '15px',
     display: 'flex',
+    textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    '@media (max-width: 800px)': {
-      backgroundImage: 'repeating-linear-gradient(90deg, #ee7370, #ee7370 50%, #e05f5f 50%, #e05f5f 100%)'
-    },
-    '@media (min-width: 480px)': {
-      padding: '4% 4% 0 4%'
-    },
   },
   col: {
     '@media (min-width: 480px)': {
       flex: 1,
     }
   },
-  colLeft: {
-    fontSize: '18px',
-    lineHeight: '26px',
-    '@media (min-width: 480px)': {
-      paddingLeft: '4%',
+  introTitle: {
+    fontFamily: 'LatoWebBold, sans-serif',
+    fontSize: '1.5em',
+    lineHeight: '1.5em',
+    fontWeight: 'normal',
+    marginBottom: '30px'
+  },
+  introText: {
+    marginBottom: '50px',
+    width: '522px',
+    fontSize: '1em',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    maxWidth: '100%',
+    '@media (min-width: 1200px)': {
+      width: '670px'
     }
   },
-  colRight: {
-    height: '100%',
-    backgroundImage:'url(img/illustration/ipad.svg)',
-    backgroundPosition: 'center bottom',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
-    width: '50%',
-    display: 'none',
-    '@media (min-width: 480px)': {
-      paddingRight: '4%',
-      display: 'block',
+
+  newsletterSubscribeExtraStyles: {
+    base: {
+      width: '670px',
+      marginRight: 'auto',
+      marginLeft: 'auto',
     },
-    '@media (min-width: 800px)': {
-      position: 'relative',
-      left: '180px',
-    }
+    description: {
+      flex: '100%',
+      fontSize: '1.30em',
+      lineHeight: '1.3em',
+      textAlign: 'center',
+      marginBottom: '25px',
+      '@media (min-width: 1200px)': {
+        flex: '100%'
+      }
+    },
   },
-  heading: {
-    fontSize: '26px',
-    fontWeight: 'normal'
-  },
+
   maxWidth: {
-    maxWidth: '420px',
+    width: '680px',
+    maxWidth: '100%',
     margin: '0 auto',
     position: 'relative',
-  },
-  moreInformationWrapper: {
-    textAlign: 'center',
-    position: 'absolute',
-    margin: '0 auto',
-    bottom: '150px',
-    left: 0,
-    width: '100%',
-    textTransform: 'lowercase',
-  },
-  moreInformationBtn: {
-    cursor: 'pointer',
-    display: 'block',
-    background: 'no-repeat center center',
-    backgroundImage: 'url(http://bartroorda.nl/upimg/201504/s-20151211-165201.png)',
-    width: '30px',
-    height: '30px',
-    backgroundSize: 'cover',
-    margin: '10px auto',
-    transition: 'margin 1s',
-    ':hover': {
-      'margin-top': '20px'
+    '@media (min-width: 1200px)': {
+      width: '800px'
     }
   },
-  intro: {
-    display: 'none'
-  }
 }
 
 export default Radium(Landing);

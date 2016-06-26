@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Laag_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 101 101" style="enable-background:new 0 0 101 101;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#3F717A;stroke-width:3.3313;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#3F717A;stroke-width:3.3313;stroke-linecap:round;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#97989F;stroke-miterlimit:10;}
+</style>
+<g>
+	<path class="st0" d="M37.2,28.8c-3.6-3.1-11.7-2.2-11.7,5c0,7.2,5,13.3,15.6,14.6"/>
+	<path class="st0" d="M63.8,28.8c3.6-3.1,11.7-2.2,11.7,5c0,7.2-5,13.3-15.6,14.6"/>
+	<path class="st0" d="M65.5,73.8c0,0.9-0.7,1.7-1.7,1.7H37.2c-0.9,0-1.7-0.7-1.7-1.7v-10c0-0.9,0.7-1.7,1.7-1.7h26.7
+		c0.9,0,1.7,0.7,1.7,1.7V73.8z"/>
+	<line class="st1" x1="43.8" y1="68.8" x2="57.1" y2="68.8"/>
+	<line class="st1" x1="50.5" y1="62.2" x2="50.5" y2="52.2"/>
+	<path class="st0" d="M50.5,52.2L50.5,52.2c10,0,13.3-8.4,13.3-14.8V25.5H37.2v11.7C37.2,43.8,40.5,52.2,50.5,52.2z"/>
+</g>
+<circle class="st2" cx="50.5" cy="50.5" r="50"/>
+</svg>
