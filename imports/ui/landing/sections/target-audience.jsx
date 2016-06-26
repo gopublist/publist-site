@@ -11,7 +11,7 @@ class TargetAudience extends Component {
   //+ createTargetAudienceSection :: Object -> Element
   createBenefit(data) {
     return (
-      <div style={s.benefit}>
+      <div key={data.title} style={s.benefit}>
         <img style={s.benefitImage} src={data.image} />
         <h1 style={s.benefitTitle}>{data.title}</h1>
         <p style={s.benefitDescription}>{data.description}</p>
@@ -41,12 +41,20 @@ class TargetAudience extends Component {
 var s = {
 
   base: {
-    textAlign: 'center'
+    textAlign: 'center',
+    paddingTop: '50px',
+    paddingRight: '15px',
+    paddingBottom: '75px',
+    paddingLeft: '15px',
   },
   maxWidth: {
-    maxWidth: '680px',
+    width: '680px',
+    maxWidth: '100%',
     margin: '0 auto',
     position: 'relative',
+    '@media (min-width: 1200px)': {
+      width: '1000px'
+    }
   },
 
   image: {
@@ -55,26 +63,40 @@ var s = {
     display: 'block'
   },
   title: {
+    textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: '26px',
+    fontSize: '1.30em',
+    lineHeight: '1.3em',
     fontWeight: 'normal',
-    marginBottom: '30px'
+    marginBottom: '30px',
+    maxWidth: '100%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    '@media (min-width: 1200px)': {
+      width: '670px'
+    }
   },
   description: {
     marginRight: 'auto',
     marginBottom: '50px',
     marginLeft: 'auto',
-    maxWidth: '522px',
+    width: '522px',
+    maxWidth: '100%',
+    '@media (min-width: 1200px)': {
+      width: '670px'
+    }
   },
 
   // USP's
 
   benefitWrapper: {
     display: 'flex',
+    flexWrap: 'wrap'
   },
   benefit: {
     flex: 1,
-    textAlign: 'center'
+    textAlign: 'center',
+    margin: '0 10px',
   },
   benefitImage: {
     margin: '10px 0',

@@ -10,6 +10,9 @@ import { BlogPosts } from '../../api/blogPosts.js';
 import SocialMediaButtonStyle from '../../style/social-media-button.jsx'
 import BlogStyles from './blog-styles.jsx';
 
+// Import templates
+import PageHeader from '../layout/page-header.jsx';
+
 class PostDetails extends Component {
 
   constructor(props) {
@@ -54,6 +57,7 @@ class PostDetails extends Component {
 
     return (
       <article style={styles.base}>
+        <PageHeader />
         <header style={Object.assign({}, BlogStyles.header, this.props.post.color && {backgroundColor: this.props.post.color})}>
           <h1 style={Object.assign({}, BlogStyles.headerTitle, {color: '#fff'})}>{this.props.post.title}</h1>
           <div style={Object.assign({}, BlogStyles.headerImg, {backgroundImage: 'url("'+this.props.post.headerImage+'")'})}></div>
@@ -82,7 +86,7 @@ class PostDetails extends Component {
 var styles = {
   base: {
     backgroundColor: '#fff',
-    margin: '20px auto',
+    margin: '0 auto 20px auto',
     paddingBottom: '25px',
     position: 'relative',
   },
@@ -93,7 +97,7 @@ var styles = {
     backgroundSize: 'contain',
     backgroundColor: '#0F303F',
     position: 'relative',
-    margin: '0 auto',
+    margin: '20px auto 0 auto',
     '@media (min-width: 480px)': {
       minHeight: '500px'
     }

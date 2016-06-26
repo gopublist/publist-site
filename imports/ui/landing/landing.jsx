@@ -1,8 +1,11 @@
 import Radium from 'radium';
 import React, { Component } from 'react';
 
+import PageHeader from './page-header.jsx';
 import NewsletterSubscribe from '../modules/newsletter/mailchimp-subscribe.jsx';
+import NewsletterSubscribeBanner from '../modules/banner/banner-wide.jsx';
 import TargetAudience from './sections/target-audience.jsx';
+import PageFooter from '../layout/page-footer.jsx';
 
 class Landing extends Component {
 
@@ -22,6 +25,8 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing-wrapper" style={s.base}>
+
+        <PageHeader />
 
         <section style={s.landingEntrance}>
           <div style={s.maxWidth}>
@@ -44,6 +49,10 @@ class Landing extends Component {
             {image: '/img/icon/benefit/Freelancer/Online vindbaarheid.svg', title: 'Online vindbaar', description: 'Vergroot je online vindbaarheid met je online portfolio.'}
           ]} />
 
+        <NewsletterSubscribeBanner>
+          <NewsletterSubscribe extraStyles={s.newsletterSubscribeExtraStyles} />
+        </NewsletterSubscribeBanner>
+
         <TargetAudience
           image="/img/persona/roy.svg"
           title="Vind schrijvers die aansluiten bij jouw visie en tone of voice"
@@ -54,6 +63,12 @@ class Landing extends Component {
             {image: '/img/icon/benefit/Opdrachtgever/Thought leaderhip opdrachtgever.svg', title: 'Thought leadership', description: 'Laat professionele schrijvers je expertise vertalen naar relevante content.'},
             {image: '/img/icon/benefit/Opdrachtgever/Timesaver.svg', title: 'Huge timesaver', description: 'Bereik je doelgroep binnen elke fase van het beslissingsproces.'}
           ]} />
+
+        <NewsletterSubscribeBanner>
+          <NewsletterSubscribe extraStyles={s.newsletterSubscribeExtraStyles} />
+        </NewsletterSubscribeBanner>
+
+        <PageFooter />
 
       </div>
     );
@@ -67,6 +82,9 @@ var s = {
     position: 'relative',
     lineHeight: '1.25em',
     minHeight: '100%',
+    '@media (min-width: 1200px)': {
+      fontSize: '1.2em'
+    }
   },
   landingEntrance: {
     paddingTop: '80px',
@@ -91,20 +109,50 @@ var s = {
     }
   },
   introTitle: {
-    fontWeight: 'bold',
-    fontSize: '26px',
+    fontFamily: 'LatoWebBold, sans-serif',
+    fontSize: '1.5em',
+    lineHeight: '1.5em',
     fontWeight: 'normal',
     marginBottom: '30px'
   },
   introText: {
     marginBottom: '50px',
-    maxWidth: '522px',
+    width: '522px',
+    fontSize: '1em',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    maxWidth: '100%',
+    '@media (min-width: 1200px)': {
+      width: '670px'
+    }
+  },
+
+  newsletterSubscribeExtraStyles: {
+    base: {
+      width: '670px',
+      marginRight: 'auto',
+      marginLeft: 'auto',
+    },
+    description: {
+      flex: '100%',
+      fontSize: '1.30em',
+      lineHeight: '1.3em',
+      textAlign: 'center',
+      marginBottom: '25px',
+      '@media (min-width: 1200px)': {
+        flex: '100%'
+      }
+    },
   },
 
   maxWidth: {
-    maxWidth: '680px',
+    width: '680px',
+    maxWidth: '100%',
     margin: '0 auto',
     position: 'relative',
+    '@media (min-width: 1200px)': {
+      width: '800px'
+    }
   },
 }
 

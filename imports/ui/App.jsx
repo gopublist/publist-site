@@ -1,8 +1,6 @@
 import Radium, { StyleRoot } from 'radium';
 import React, { Component } from 'react';
  
-import Header from './layout/header.jsx';
-
 // App component - represents the whole app
 class App extends Component {
 
@@ -13,7 +11,6 @@ class App extends Component {
   render() {
     return (
       <StyleRoot style={styles.main}>
-        <Header />
         {this.props.content}
       </StyleRoot>
     );

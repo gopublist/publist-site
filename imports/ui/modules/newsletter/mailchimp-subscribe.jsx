@@ -21,7 +21,7 @@ class NewsletterSubscribe extends Component {
       contentType: "application/json; charset=utf-8",
       error: function(err) {
 
-        s.notificationContainer.display = 'flex';
+        $('.notificationContainer').css({display: 'flex'});
 
         setTimeout(function(){
           $('.notificationContainer').hide();
@@ -32,7 +32,7 @@ class NewsletterSubscribe extends Component {
       },
       success: function(data) {
 
-        s.notificationContainer.display = 'flex';
+        $('.notificationContainer').css({display: 'flex'});
 
         setTimeout(function(){
           $('.notificationContainer').hide();
@@ -56,15 +56,16 @@ class NewsletterSubscribe extends Component {
   }
  
   render() {
+
     return (
-      <form onSubmit={this.submitForm.bind(this)} style={s.base} action="https://publist.us1.list-manage.com/subscribe/post-json?u=ce0bb47feb2cc31030ee93bcd&amp;id=e0a49457d2&c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
+      <form onSubmit={this.submitForm.bind(this)} style={Object.assign({}, s.base, this.props.extraStyles && this.props.extraStyles.base && this.props.extraStyles.base)} action="https://publist.us1.list-manage.com/subscribe/post-json?u=ce0bb47feb2cc31030ee93bcd&amp;id=e0a49457d2&c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
 
         <div style={s.hiddenMailchimp} aria-hidden="true"><input type="text" name="b_ce0bb47feb2cc31030ee93bcd_e0a49457d2" tabindex="-1" value="" /></div>
 
         <div style={Object.assign({}, s.notificationContainer)} className="notificationContainer"></div>
 
         <div style={s.flexRow}>
-          <div style={Object.assign({}, s.col, s.description)}>
+          <div style={Object.assign({}, s.col, s.description, this.props.extraStyles && this.props.extraStyles.description && this.props.extraStyles.description)}>
             Schrijf je alvast in
           </div>
           <input ref="email" style={Object.assign({}, s.col, s.input, s.inputEmail)} type="email" name="EMAIL" id="mce-EMAIL" placeholder="E-mailadres" />
@@ -79,17 +80,24 @@ class NewsletterSubscribe extends Component {
 var s = {
 
   base: {
+    maxWidth: '100%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
     display: 'flex',
     justifyContent: 'space-around',
   },
   
   flexRow: {
     display: 'flex',
+    flexWrap: 'wrap',
     width: '100%'
   },
   col: {
     flex: 1,
-    margin: '0 18px'
+    '@media (min-width: 600px)': {
+      marginRight: '18px',
+      marginLeft: '18px',
+    }
   },
 
   notificationContainer: {
@@ -111,6 +119,16 @@ var s = {
     fontSize: '0.70em',
     height: '34px',
     lineHeight: '34px',
+    whiteSpace: 'nowrap',
+    padding: '0 10px',
+    marginBottom: '5px',
+    maxWidth: '100%',
+    '@media (min-width: 1200px)': {
+      flex: 1,
+      textAlign: 'left',
+      height: '45px',
+      lineHeight: '45px',
+    }
   },
   inputEmail: {
     fontWeight: 'bold',
@@ -125,6 +143,12 @@ var s = {
     height: '35px',
     lineHeight: '35px',
     fontSize: '0.8em',
+    marginBottom: '10px',
+    '@media (min-width: 1200px)': {
+      flex: 2,
+      height: '45px',
+      lineHeight: '45px',
+    }
   },
   inputSubmit: {
     flex: 1,
@@ -137,6 +161,12 @@ var s = {
     fontSize: '0.8em',
     height: '34px',
     lineHeight: '34px',
+    marginBottom: '10px',
+    '@media (min-width: 1200px)': {
+      flex: 1,
+      height: '44px',
+      lineHeight: '44px',
+    },
     ':hover': {
       backgroundColor: '#fff',
       color: '#000'
