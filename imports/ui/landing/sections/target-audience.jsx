@@ -94,9 +94,16 @@ var s = {
     flexWrap: 'wrap'
   },
   benefit: {
-    flex: 1,
     textAlign: 'center',
     margin: '0 10px',
+    flex: '50%',
+    '@media (min-device-width: 340px)': {
+      flex: '1',
+    },
+    '@media (min-device-width: 375px) and (max-device-width: 667px)': {
+      // iPhone 6
+      flex: '50%',
+    },
   },
   benefitImage: {
     margin: '10px 0',

@@ -69,7 +69,7 @@ class NewsletterSubscribe extends Component {
             Schrijf je alvast in
           </div>
           <input ref="email" style={Object.assign({}, s.col, s.input, s.inputEmail)} type="email" name="EMAIL" id="mce-EMAIL" placeholder="E-mailadres" />
-          <input style={Object.assign({}, s.input, s.inputSubmit)} onClick={this.submitForm.bind(this)} class="btn" name="subscribe" id="mc-embedded-subscribe" type="submit" value="Aanmelden" />
+          <button style={Object.assign({}, s.input, s.inputSubmit)} onClick={this.submitForm.bind(this)} class="btn" name="subscribe" id="mc-embedded-subscribe" type="submit">Aanmelden</button>
         </div>
 
       </form>
@@ -90,7 +90,7 @@ var s = {
   flexRow: {
     display: 'flex',
     flexWrap: 'wrap',
-    width: '100%'
+    width: '100%',
   },
   col: {
     flex: 1,
@@ -123,6 +123,7 @@ var s = {
     padding: '0 10px',
     marginBottom: '5px',
     maxWidth: '100%',
+    flex: '100%',
     '@media (min-width: 1200px)': {
       flex: 1,
       textAlign: 'left',

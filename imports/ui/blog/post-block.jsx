@@ -16,8 +16,6 @@ class PostBlock extends Component {
       html: true
     });
 
-    console.log(this.props.post);
-
     return (
       <article style={styles.base}>
         <header style={Object.assign({}, BlogStyles.header, {backgroundColor: this.props.post.color ? this.props.post.color : '#FF6B6B'})}>
