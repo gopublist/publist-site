@@ -71,7 +71,7 @@ var s = {
     paddingBottom: '15px',
     paddingLeft: '15px',
     backgroundColor: '#000',
-    backgroundImage: 'url(/img/about/about.png)',
+    backgroundImage: 'url(/img/about/about.jpg)',
     backgroundPosition: 'center center',
     backgroundSize: 'cover',
     backgroundRepeat: 'noRepeat',
