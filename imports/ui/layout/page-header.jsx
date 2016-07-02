@@ -9,6 +9,16 @@ class Header extends Component {
     super(props);
   }
  
+  navigateToAboutPage(e) {
+    e.preventDefault();
+    FlowRouter.go('about');
+  }
+
+  navigateToBlogPage(e) {
+    e.preventDefault();
+    FlowRouter.go('blog');
+  }
+
   render() {
     return (
       <div className="topbar" style={styles.topbar}>
@@ -17,7 +27,8 @@ class Header extends Component {
           <a ref="twitter" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.twitter)} target="_blank" href="https://twitter.com/gopublist">Twitter</a>
           <a ref="facebook" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.facebook)} target="_blank" href="https://fb.com/gopublist">Facebook</a>
           <a ref="gplus" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, SocialMediaButtonStyle.gplus)} target="_blank" href="https://plus.google.com/109440913291033879409">Google+</a>
-          <a ref="blog" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, styles.blog)} href="/blog" target="_self">blog</a>
+          <a ref="over" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, styles.page)} onClick={this.navigateToAboutPage.bind(this)} href="/over" target="_self">over</a>
+          <a ref="blog" style={Object.assign({}, SocialMediaButtonStyle.socialmediaButton, styles.page)} onClick={this.navigateToBlogPage.bind(this)} href="/blog" target="_self">blog</a>
         </nav>
       </div>
     );
@@ -54,7 +65,7 @@ var styles = {
     margin: 0,
     padding: 0
   },
-  blog: {
+  page: {
     display: 'block',
     textIndent: 0,
     textDecoration: 'none',

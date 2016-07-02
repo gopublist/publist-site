@@ -10,7 +10,7 @@ class PageFooter extends Component {
   render() {
     return (
       <footer style={s.base}>
-        Publist ♡
+        <a style={s.publistLove} href="/">Publist ♡</a>
       </footer>
     );
   }
@@ -21,6 +21,12 @@ var s = {
     padding: '50px 0',
     textAlign: 'center'
   },
+  publistLove: {
+    color: '#323544',
+    ':hover': {
+      color: '#CC1B1B'
+    }
+  }
 }
 
 export default Radium(PageFooter);

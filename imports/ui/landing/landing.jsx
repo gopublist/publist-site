@@ -1,7 +1,7 @@
 import Radium from 'radium';
 import React, { Component } from 'react';
 
-import PageHeader from './page-header.jsx';
+import PageHeader from '../layout/page-header-white.jsx';
 import NewsletterSubscribe from '../modules/newsletter/mailchimp-subscribe.jsx';
 import NewsletterSubscribeBanner from '../modules/banner/banner-wide.jsx';
 import TargetAudience from './sections/target-audience.jsx';
@@ -102,6 +102,9 @@ var s = {
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
+    '@media (max-width: 340px)': {
+      maxHeight: '568px',
+    }
   },
   col: {
     '@media (min-width: 480px)': {
@@ -111,7 +114,7 @@ var s = {
   introTitle: {
     fontFamily: 'LatoWebBold, sans-serif',
     fontSize: '1.5em',
-    lineHeight: '1.5em',
+    lineHeight: '1.15em',
     fontWeight: 'normal',
     marginBottom: '30px'
   },
