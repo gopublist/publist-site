@@ -51,8 +51,6 @@ Blog.propTypes = {
 
 export default createContainer(() => {
   return {
-    blogPosts: BlogPosts.find({}, {
-      sort: {_id: -1}
-    }).fetch()
+    blogPosts: BlogPosts.find({}, { sort: {_id: -1} }).fetch()
   };
 }, Radium(Blog));

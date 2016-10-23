@@ -14,8 +14,6 @@ export default class EditPost extends Component {
     this.state = {
       blogPost: this.props.blogPost
     };
-
-    console.log(this.props);
   }
 
  // componentWillReceiveProps(nextProps) {
